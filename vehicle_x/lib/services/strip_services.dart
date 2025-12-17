@@ -8,17 +8,17 @@ class StripeService {
     debugPrint("👉 StripeService.openCheckout called");
 
     const String backendUrl =
-        "http://192.168.1.26:5000/create-checkout-session";
+        "https://newone-for-mbl.onrender.com/create-checkout-session";
 
-    debugPrint("👉 Sending request to backend");
+    debugPrint(" Sending request to backend");
 
     final response = await http.post(
       Uri.parse(backendUrl),
       headers: {"Content-Type": "application/json"},
     );
 
-    debugPrint("👉 Response status: ${response.statusCode}");
-    debugPrint("👉 Response body: ${response.body}");
+    debugPrint(" Response status: ${response.statusCode}");
+    debugPrint(" Response body: ${response.body}");
 
     if (response.statusCode != 200) {
       throw Exception("Backend error");
@@ -27,13 +27,13 @@ class StripeService {
     final data = json.decode(response.body);
     final String checkoutUrl = data["url"];
 
-    debugPrint("👉 Checkout URL: $checkoutUrl");
+    debugPrint(" Checkout URL: $checkoutUrl");
 
     final uri = Uri.parse(checkoutUrl);
 
     final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
 
-    debugPrint("👉 Browser opened: $opened");
+    debugPrint(" Browser opened: $opened");
 
     if (!opened) {
       throw Exception("Could not open browser");

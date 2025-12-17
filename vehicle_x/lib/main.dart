@@ -3,6 +3,8 @@ import 'package:vehicle_x/services/paymentlistener.dart';
 import 'package:vehicle_x/succes_scree.dart';
 import 'screens/dashboard_screen.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,9 +22,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     // ✅ Start listening for Stripe deep links
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      PaymentListener.start(context);
-    });
+    PaymentListener.start();
   }
 
   @override
@@ -30,8 +30,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Elite Motors',
+      navigatorKey: navigatorKey, // set navigator key globally
 
-      // ✅ ROUTES FOR STRIPE CALLBACKS
       routes: {
         '/': (context) => const DashboardScreen(),
         '/payment-success': (context) => const PaymentSuccess(),

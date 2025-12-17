@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_x/services/strip_services.dart';
-// import '../services/stripe_service.dart';
 import '../model/vehicle_model.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -14,8 +13,12 @@ class BookingScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Booking: ${vehicle.name}", style: const TextStyle(fontSize: 20)),
+            Text(
+              "Booking: ${vehicle.name}",
+              style: const TextStyle(fontSize: 20),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
