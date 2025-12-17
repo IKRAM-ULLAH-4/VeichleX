@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary app color -->
+    <color name="primary">#2196F3</color> <!-- Blue 500 -->
+
+    <!-- Slightly darker variant for status bars / toolbars -->
+    <color name="primaryVariant">#1976D2</color> <!-- Blue 700 -->
+
+    <!-- Secondary color for accents -->
+    <color name="secondary">#FFC107</color> <!-- Amber 500 -->
+
+    <!-- Background color (used in NormalTheme windowBackground) -->
+    <color name="background">#FFFFFF</color> <!-- White -->
+
+    <!-- Optional: text colors -->
+    <color name="textPrimary">#212121</color> <!-- Dark Gray -->
+    <color name="textSecondary">#757575</color> <!-- Medium Gray -->
+</resources>
